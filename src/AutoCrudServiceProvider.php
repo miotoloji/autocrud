@@ -2,6 +2,8 @@
 
 namespace Miotoloji\AutoCrud;
 
+require __DIR__.'/Console/Commands/Module/Create.php';
+
 use Illuminate\Support\ServiceProvider;
 use Miotoloji\AutoCrud\Console\Commands\Module\Create;
 use Illuminate\Support\Facades\Route;
