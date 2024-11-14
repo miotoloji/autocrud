@@ -1,0 +1,25 @@
+{
+    "name": "miotoloji/autocrud",
+    "description": "Autocruder",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Miotoloji\\Autocrud\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Selçuk Mollaibrahimoğlu",
+            "email": "selcuk@mollaibrahimoglu.com"
+        }
+    ],
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Miotoloji\\Autocrud\\AutoCrudServiceProvider"
+            ]
+        }
+    }
+}

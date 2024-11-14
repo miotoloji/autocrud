@@ -1,0 +1,54 @@
+<?php
+
+namespace App\{%MODULENAME%}\Controllers;
+
+use App\Http\Controllers\Controller;
+use App\{%MODULENAME%}\Helpers\FilterHelper;
+use App\{%MODULENAME%}\Models\{%MODULENAME%};
+use App\{%MODULENAME%}\Requests\{%MODULENAME%}FilterRequest;
+use App\{%MODULENAME%}\Requests\{%MODULENAME%}Request;
+use App\{%MODULENAME%}\Resources\{%MODULENAME%}FailResource;
+use App\{%MODULENAME%}\Resources\{%MODULENAME%}Resource;
+
+class {%MODULENAME%}Controller extends Controller
+{ 
+    /**
+     * @param {%MODULENAME%}FilterRequest $request
+     * @return {%MODULENAME%}Resource
+     */
+    public function index({%MODULENAME%}FilterRequest $request){
+        return new {%MODULENAME%}Resource(FilterHelper::filterModel({%MODULENAME%}::query(),$request->filters));
+    }
+
+    /**
+     * @param {%MODULENAME%} $data
+     * @param $id
+     * @return {%MODULENAME%}Resource
+     */
+    public function show({%MODULENAME%} $data,$id){
+        return new {%MODULENAME%}Resource($data->find($id));
+    }
+
+    /**
+     * @param {%MODULENAME%}Request $request
+     * @return {%MODULENAME%}Resource
+     */
+    public function store({%MODULENAME%}Request $request){
+        return new {%MODULENAME%}Resource({%MODULENAME%}::create($request->toArray()));
+    }
+
+    /**
+     * @param {%MODULENAME%} $data
+     * @param $id
+     * @param {%MODULENAME%}Request $request
+     * @return {%MODULENAME%}FailResource|{%MODULENAME%}Resource
+     */
+    public function update({%MODULENAME%} $data,$id, {%MODULENAME%}Request $request){
+        $data = $data->find($id);
+        if(!$data)
+            return new {%MODULENAME%}FailResource([]);
+        if($data->update($request->toArray()))
+            return new {%MODULENAME%}Resource($data);
+        return new {%MODULENAME%}FailResource([]);
+    }
+}

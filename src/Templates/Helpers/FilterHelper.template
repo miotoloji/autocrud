@@ -1,0 +1,20 @@
+<?php
+
+namespace App\{%MODULENAME%}\Helpers;
+
+class FilterHelper
+{
+    /**
+     * @param $model
+     * @param $filters
+     * @return mixed
+     */
+    public static function filterModel($model, $filters){
+        if(!empty($filters))
+            foreach ($filters as $k => $f){
+                $model->where($k,$f);
+            }
+        //You can customize your filter here
+        return $model->paginate();
+    }
+}

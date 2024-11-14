@@ -1,0 +1,24 @@
+<?php
+
+namespace App\{%MODULENAME%}\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class {%MODULENAME%} extends Model
+{
+
+    protected $table = '{%TABLENAME%}';
+    protected $primaryKey = '{%PRIMARYKEY%}';
+    public const CREATED_AT = '{%CREATED%}';
+    public const UPDATED_AT = '{%UPDATED%}';
+    //tsfalsecomment
+  
+    {%FILLABLE_FIELDS%}
+
+
+    {%HIDDEN_FIELDS%}
+
+  
+    {%CASTS%}
+
+}
