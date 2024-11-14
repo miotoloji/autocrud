@@ -13,7 +13,7 @@ Then enter the command via the console,
 
 php artisan module:create MODULE_NAME --table=TABLE_NAME (default= MODULE_NAME) --created=CREATED_AT_COLUMN_NAME (default= created_at) --updated=UPDATED_AT_COLUMN_NAME (default = updated_at)
 
-For install: composer require miotoloji/autocrud:dev-main
+For install: composer require miotoloji/autocrud
 
 The structure will be created in your app folder as follows.
 
